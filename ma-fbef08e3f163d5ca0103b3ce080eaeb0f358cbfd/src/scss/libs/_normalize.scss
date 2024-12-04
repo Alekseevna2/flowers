@@ -3,7 +3,7 @@
   margin: 0;
   list-style: none;
   outline: none;
-  font-family: 'Nunito', Roboto, system-ui, Tahoma, sans-serif;
+  font-family: 'Nunito', 'Roboto', system-ui, 'Tahoma', sans-serif;
   box-sizing: border-box;
 }
 
@@ -35,6 +35,7 @@ h1 {
 }
 
 h2 {
+  font-family:"" ;
   font-weight: 600;
   font-size: 28px;
   line-height: 30px;
