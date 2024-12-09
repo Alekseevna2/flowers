@@ -7,21 +7,22 @@ import Skeleton from '../components/PizzaBlock/Skeleton';
 const Home=({searchValue})=> {
   const [items,setItems]=React.useState([]);
   const [isLoading,setIsloading]=React.useState(true);
-  const[categoryId, setCategoryId]=React.useState(0);
-  const[sortType, setSortType]=React.useState({//чтобы изначально отражалось по популярности
+  const [categoryId, setCategoryId]=React.useState(0);
+  const [sortType, setSortType]=React.useState({//чтобы изначально отражалось по популярности
     name:"популярности",
     sortProperty:"rating",//по умолчанию идет сортирровка по rating
   });
   React.useEffect(()=>{
     setIsloading(true);//загрузка скелетона перед категориями
 
-    const order =sortType.sortProperty.includes('-') ? 'asc': 'desc';//если есть - сортировка по возрастанию, иначе по убыванию
     const sortBy = sortType.sortProperty.replace('-','');//если есть - удалить его из свойства
+    const order =sortType.sortProperty.includes('-') ? 'asc': 'desc';//если есть - сортировка по возрастанию, иначе по убыванию
     const category = categoryId > 0? `category=${categoryId}` : '';
-    const search = searchValue ? `&search=${searchValue}` : "";
+    const search = searchValue ? `search=${searchValue}` : "";
     
 //запрос пицц  с мокапи
-    fetch(`https://670e3a4c073307b4ee45fb19.mockapi.io/items?${category}&sortBy=${sortBy}&order=${search}`)//&search=${search}
+    fetch(`https://66f1215341537919154fa6f6.mockapi.io/items?${category}&sortBy=${sortBy}&order=${order}`,)
+
     .then((res)=>res.json())
     .then((arr)=>{
       setItems(arr);//возращает новые пиццы

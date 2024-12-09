@@ -14,7 +14,7 @@ function App(){
       <Header searchValue={searchValue} setSearchValue={setSearchValue}/>
       <div className="content">
       <div className="container">
-        <Routes>
+        <Routes> /*маршутизация
           <Route path="/" element={<Home searchValue={searchValue}/>}/>
           <Route path="/cart" element={<Cart/>}/>
           <Route path="*" element={<NotFound/>}/>

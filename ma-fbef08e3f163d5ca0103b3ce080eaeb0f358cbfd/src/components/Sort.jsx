@@ -4,18 +4,17 @@ import React from 'react'
     const [open, setOpen]=React.useState(false);//открытие и закрытие
 
     const list=[
-        {name:'популярности(DESC)',sortProperety: "rating"},//убываение
-        {name:'популярности(ASC)',sortProperety: "-rating"},//возрастание
-        {name:'цене(DESC)',sortProperety: "price"},
-        {name:'цене(ASC)',sortProperety: "-price"},
-        {name:'алфавиту(DESC)', sortProperety:"title"},
-        {name:'алфавиту(ASC)', sortProperety:"-title"},
+        {name:'популярности(DESC)',sortProperty: "rating"},//убываение
+        {name:'популярности(ASC)',sortProperty: "-rating"},//возрастание
+        {name:'цене(DESC)',sortProperty: "price"},
+        {name:'цене(ASC)',sortProperty: "-price"},
+        {name:'алфавиту(DESC)', sortProperty:"title"},
+        {name:'алфавиту(ASC)', sortProperty:"-title"},
     ];
     const onClickListItem=(i)=>{
         onChangeSort(i);
         setOpen(false);
     };
-
   return (
     <div className="sort">
     <div className="sort__label">
@@ -41,7 +40,7 @@ import React from 'react'
                     <li
                     key={index}
                     onClick={()=>onClickListItem(obj)}
-                    className={value.sortProperety===obj.sortProperety ?'active':''}>
+                    className={value.sortProperty===obj.sortProperty ?'active':''}>
                        {obj.name}
                     </li>//если сортировка совпадает с тем, что рендерит списов
                 ))}
