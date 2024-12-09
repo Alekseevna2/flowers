@@ -8,31 +8,32 @@ const Home=({searchValue})=> {
   const [items,setItems]=React.useState([]);
   const [isLoading,setIsloading]=React.useState(true);
   const[categoryId, setCategoryId]=React.useState(0);
-  const[sortType, setSortType]=React.useState({
+  const[sortType, setSortType]=React.useState({//чтобы изначально отражалось по популярности
     name:"популярности",
-    sortProperty:"rating",
+    sortProperty:"rating",//по умолчанию идет сортирровка по rating
   });
   React.useEffect(()=>{
-    const sortBy = sortType.sortProperty.replace('-','');
+    setIsloading(true);//загрузка скелетона перед категориями
+
+    const order =sortType.sortProperty.includes('-') ? 'asc': 'desc';//если есть - сортировка по возрастанию, иначе по убыванию
+    const sortBy = sortType.sortProperty.replace('-','');//если есть - удалить его из свойства
     const category = categoryId > 0? `category=${categoryId}` : '';
     const search = searchValue ? `&search=${searchValue}` : "";
     
-
-    fetch(`https://670e3a4c073307b4ee45fb19.mockapi.io/items?limit=4&${category}&sortBy=${sortBy}&order=${search}`)
+//запрос пицц  с мокапи
+    fetch(`https://670e3a4c073307b4ee45fb19.mockapi.io/items?${category}&sortBy=${sortBy}&order=${search}`)//&search=${search}
     .then((res)=>res.json())
     .then((arr)=>{
-      setItems(arr);
-      setIsloading(false);
+      setItems(arr);//возращает новые пиццы
+      setIsloading(false);//загружка завершена
     });
    window.scrollTo(0,0);
-  },[categoryId, sortType, searchValue]);
+  },[categoryId, sortType, searchValue]);// если будет меняться тут, будет делаться запрос заново 
 
   return (
     <div  className='container'>
     <div className='content__top'>
-      <Categories
-      value={categoryId}
-      onChangeCategory={(index)=> setCategoryId(index)}/>
+      <Categories value={categoryId} onChangeCategory={(index)=> setCategoryId(index)}/>
       <Sort value ={sortType} onChangeSort={(index) => setSortType(index)}/>
     </div>
     <h2 className="content__title">Наш ассортимент</h2>

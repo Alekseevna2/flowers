@@ -5,8 +5,7 @@ import React from 'react'
   return (
 <div className='categories'>
     <ul>
-        {
-            categories.map((categoryName, index)=>(
+        {categories.map((categoryName, index)=>(
                 <li
                 key={index}
                 onClick={()=> onChangeCategory(index)}
