@@ -8,7 +8,7 @@ import { Route, Routes } from "react-router-dom";
 
 
 function App(){
-  const [searchValue,setSearchValue]=React.useState('');
+  const [searchValue,setSearchValue]=React.useState('');// из app.js передаем данные в header
   return(
     <div className="wrapper">
       <Header searchValue={searchValue} setSearchValue={setSearchValue}/>
