@@ -4,12 +4,9 @@ import React from 'react'
     const [open, setOpen]=React.useState(false);//открытие и закрытие
 
     const list=[
-        {name:'популярности(DESC)',sortProperty: "rating"},//убываение
-        {name:'популярности(ASC)',sortProperty: "-rating"},//возрастание
-        {name:'цене(DESC)',sortProperty: "price"},
-        {name:'цене(ASC)',sortProperty: "-price"},
-        {name:'алфавиту(DESC)', sortProperty:"title"},
-        {name:'алфавиту(ASC)', sortProperty:"-title"},
+      {name: 'популярности', sortProperty: 'rating'},
+      {name: 'цене', sortProperty: 'price'},
+      {name: 'алфавиту', sortProperty: 'title'},
     ];
     const onClickListItem=(i)=>{
         onChangeSort(i);

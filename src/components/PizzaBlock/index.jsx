@@ -27,6 +27,7 @@ const typeNames = ["с упаковкой","без упаковки"];
      <div className="pizza-block__bottom">
       <div className="pizza-block__price"> от {price} ₽</div>
       <div className="button button--outline button--add">
+
         <span>добавить</span>
         
       </div>

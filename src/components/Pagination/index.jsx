@@ -1,10 +1,10 @@
 import React from 'react'
-import Paginate from './Pagination'
+import ReactPaginate from 'react-paginate'
 import styles from './Pagination.module.scss'
 
-const Pagination=({ onChangePage }) =>{
+function Pagination({ onChangePage }) {
   return (
-    <Paginate
+    <ReactPaginate
       className = {styles.root}
       breaklabel = "..."
       nextLabel = ">"
